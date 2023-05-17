@@ -1,0 +1,6 @@
+- name: httpd service restarted
+  service:
+     name: "{{ web }}"
+     state: restarted
+
+  listen: httpd_restarted

@@ -1,0 +1,15 @@
+- name: install httpd packages
+  yum: 
+       name: "{{ web }}"
+       state: installed 
+      
+- name: start services
+  service: 
+       name: "{{ web }}"
+       state: started
+       enabled: true
+
+
+- name: import apache file
+  import_tasks: task1.yml
+

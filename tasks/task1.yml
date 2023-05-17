@@ -1,0 +1,15 @@
+- name: create directory
+  file:
+      path: "{{ webroot }}"
+      state: directory
+
+- name: copy data file
+  command: echo hello > /var/www/html/index.html
+
+
+- name: copy jinja files
+  template:
+      src: apache.conf.j2
+      dest: "{{ apache_config }}"
+
+  notify: httpd_restarted    
